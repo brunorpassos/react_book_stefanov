@@ -8,20 +8,24 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <div id="component-props"></div>
+    <div id="component-proptypes"></div>
     <script type="text/babel">
       var Component = React.createClass({
+        proptypes: {
+          name: React.PropTypes.string.isRequired,
+        },
         render: function() {
-          return React.DOM.span(null, "Meu nome é " + this.props.name);
+          return React.DOM.span(null, "Meu nome é " + this.props.name)
         }
       });
 
       ReactDOM.render(
         React.createElement(Component, {
-          name: "Bruno",
+          name: "Sei la",
         }),
-        document.getElementById('component-props')
+        document.getElementById("component-proptypes")
       );
+      
 
     </script>
   </body>

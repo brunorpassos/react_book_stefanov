@@ -8,19 +8,26 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <div id="component-props"></div>
+    <div id="factory-component1"></div>
+    <div id="factory-component2"></div>
     <script type="text/babel">
       var Component = React.createClass({
         render: function() {
-          return React.DOM.span(null, "Meu nome é " + this.props.name);
+          return React.DOM.span(null, 'Componente customizado')
         }
       });
+      
+      var ComponentFactory = React.createFactory(Component);
 
       ReactDOM.render(
-        React.createElement(Component, {
-          name: "Bruno",
-        }),
-        document.getElementById('component-props')
+        ComponentFactory(),
+        document.getElementById('factory-component1')
+      );
+
+
+      ReactDOM.render(
+        ComponentFactory(),
+        document.getElementById('factory-component2')
       );
 
     </script>
