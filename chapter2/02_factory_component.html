@@ -8,12 +8,19 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="factory-component"></div>
     <script type="text/babel">
+      var Component = React.createClass({
+        render: function() {
+          return React.DOM.span(null, 'Componente customizado')
+        }
+      });
+      
+      var ComponentFactory = React.createFactory(Component);
 
       ReactDOM.render(
-        React.DOM.h1(null, "Hello World!"),
-        document.getElementById('app')
+        ComponentFactory(),
+        document.getElementById('factory-component')
       );
 
     </script>

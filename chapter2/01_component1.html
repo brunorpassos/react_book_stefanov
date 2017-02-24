@@ -8,12 +8,17 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="first-component"></div>
     <script type="text/babel">
+      var MyComponent = React.createClass({
+        render: function() {
+          return React.DOM.span(null, 'Componente customizado')
+        }
+      });
 
       ReactDOM.render(
-        React.DOM.h1(null, "Hello World!"),
-        document.getElementById('app')
+        React.createElement(MyComponent),
+        document.getElementById('first-component')
       );
 
     </script>

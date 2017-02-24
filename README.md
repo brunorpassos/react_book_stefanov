@@ -1,11 +1,5 @@
-This is a study from the Stefanov's book "React: Up & Running".
+Este repositório trata-se de um estudo em React.
 
-Chapter 1
+Comecei a fazer o texto em inglês mas desisti pois encotrei muita referência boa na língua inglesa. Com um texto em português posso ajudar alguém que não tenha conhecimento de uma lingua estrangeira.
 
-First of all, you've to notice that the book tells you to download a "Starter Kit"
-from the github page. But you won't find that .zip file there. Instead of using
-NPM or another package manager, I'll use CDN as a start.
-
-src="https://unpkg.com/react@latest/dist/react.js"
-src="https://unpkg.com/react-dom@latest/dist/react-dom.js"
-src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"
+  
