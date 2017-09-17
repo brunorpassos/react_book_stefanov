@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lifecycle Methods</title>
+  </head>
+  <body>
+    <h1>Ciclo de vida dos componentes</h1>
+
+    <h3>componentWillUpdate()</h3>
+    <p>Executado antes do método render()</p>
+
+    <h3>componentDidUpdate()</h3>
+    <p>Executado logo após o método render() terminar sua execução e após as mudanças no DOM terem sido aplicadas.</p>
+
+    <h3>componentWillMount()</h3>
+    <p>Método executado antes que o nó tenha sido inserido no DOM.</p>
+
+    <h3>componentDidMount()</h3>
+    <p>Executado após o nó ter sido inserido no DOM.</p>
+
+    <h3>componentWillUnmount()</h3>
+    <p>Executado logo antes do compontente ser removido do DOM.</p>
+
+    <h3>shouldComponentUpdate(newProps, newState)</h3>
+    <p>
+      O método é executado antes do método componentWillUpdate(). O método oferece uma chance para
+      cancelar o update do componente. Ou seja, pode evitar que o render() seja executado.Isso pode ser útil
+      quando nenhuma renderização é necessária (pode ser mais performático). Somente componentes puros podem utilizar o metodo shouldComponentUpdate
+    </p>
+
+
+  </body>
+</html>

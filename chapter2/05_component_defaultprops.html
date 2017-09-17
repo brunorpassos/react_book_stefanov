@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="component-defaultprops"></div>
+    <script type="text/babel">
+      var Component = React.createClass({
+        propTypes: {
+          firstName: React.PropTypes.string.isRequired,
+          middleName: React.PropTypes.string,
+          familyName: React.PropTypes.string.isRequired,
+          address: React.PropTypes.string,
+        },
+
+        getDefaultProps: function() {
+          return {
+            middleName: "Default Props",
+            address: "N/A",
+          };
+        },
+
+        render: function() {
+          return React.DOM.span(null, "Meu nome completo é " + this.props.firstName + " " + this.props.middleName +
+           " " +  this.props.familyName + " e moro na Rua " + this.props.address)
+        }
+      });
+
+      ReactDOM.render(
+        React.createElement(Component, {
+          firstName: "Bruno",
+          familyName: "Passos",
+          address: "Rua dos Tolos numero zero",
+        }),
+        document.getElementById("component-defaultprops")
+      );
+
+    </script>
+  </body>
+</html>
