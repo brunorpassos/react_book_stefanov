@@ -59,10 +59,25 @@
         },
 
         _showEditor: function(e) {
+          console.log("noix");
           this.setState({edit: {
             row: parseInt(e.target.dataset.row, 10),
             cell: e.target.cellIndex,
           }});
+        },
+
+        _save: function(e) {
+          e.preventDefault();
+
+          var input = e.target.firstChild;
+          var data = this.state.data.slice();
+          data[this.state.edit.row][this.state.edit.cell] = input.value;
+
+          this.setState({
+            edit: null, //done editing
+            data: data,
+          });
+
         },
 
         render: function() {
@@ -79,15 +94,27 @@
                 )
               ),
               React.DOM.tbody({onDoubleClick: this._showEditor}, 
-                this.state.data.map(function(row, idx) {
+                this.state.data.map(function(row, rowidx) {
                   return (
-                    React.DOM.tr( {key: idx}, 
+                    React.DOM.tr( {key: rowidx}, 
                       row.map(function(cell, idx) {
-                        return React.DOM.td({key: idx}, cell)
-                      })
+                        var content = cell;
+
+                        var edit = this.state.edit;
+
+                        if (edit && edit.row === rowidx && edit.cell === idx) {
+                          content = React.DOM.form({onSubmit: this._save}, React.DOM.input({
+                            type: "text",
+                            defaultValue: content,
+                            })
+                          );
+                        }
+
+                        return React.DOM.td({key: idx, 'data-row': rowidx}, content);
+                      }, this)
                     )
                   );
-                })
+                }, this)
               )
             )
           );
