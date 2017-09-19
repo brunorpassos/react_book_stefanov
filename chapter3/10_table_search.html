@@ -22,14 +22,14 @@
        ["She: A History of Adventure", "H. Rider Haggard", "English", "1887", "100 million"],
       ];
 
-
       var Excel = React.createClass({        
         getInitialState: function() {
           return {
             data: this.props.initialData, 
             sortBy: null,
             descending: false,
-            edit: null, // {row: index, cell: index}
+            edit: null, // {row: index, cell: index},
+            search: false,
           };
         },
 
@@ -75,6 +75,25 @@
             data: data,
           });
         },
+
+        _renderToolbar: function() {
+
+        },
+
+        _renderTable: function() {
+
+        },
+
+        render: function() {
+          return (
+            React.DOM.div(null,
+              this._renderToolbar(),
+              this._renderTable()
+            )
+          );
+        }
+
+
 
         render: function() {
           return (
