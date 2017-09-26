@@ -77,25 +77,20 @@
         },
 
         _renderToolbar: function() {
+          React.DOM.button(
+            {
+              onClick: this._toggleSearch(),
+              className: 'toolbar',
+            },
+            'search'
+          );
+        },
+
+        _toggleSearch: function() {
 
         },
 
         _renderTable: function() {
-
-        },
-
-        render: function() {
-          return (
-            React.DOM.div(null,
-              this._renderToolbar(),
-              this._renderTable()
-            )
-          );
-        }
-
-
-
-        render: function() {
           return (
             React.DOM.table(null,
               React.DOM.thead(null,
@@ -130,7 +125,17 @@
               )
             )
           );
+        },
+
+        render: function() {
+          return (
+            React.DOM.div(null,
+              this._renderToolbar(),
+              this._renderTable()
+            )
+          );
         }
+
       });
 
       ReactDOM.render(
